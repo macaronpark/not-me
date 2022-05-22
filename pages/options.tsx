@@ -2,23 +2,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
-export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/hello`);
-  const data = await res.json();
-
-  return { props: { data } };
-}
-
-const Home: NextPage = (props) => {
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    setUser(props?.data?.name);
-  }, []);
-
+const Options: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -29,8 +15,8 @@ const Home: NextPage = (props) => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          {user} Learn{" "}
-          <Link href="/options">
+          Learn2{" "}
+          <Link href="/">
             <a>Next.js!</a>
           </Link>
         </h1>
@@ -81,4 +67,4 @@ const Home: NextPage = (props) => {
   );
 };
 
-export default Home;
+export default Options;
